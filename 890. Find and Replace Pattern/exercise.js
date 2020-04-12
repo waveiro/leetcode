@@ -5,17 +5,17 @@
 var findAndReplacePattern = function (words, pattern) {
   const matchedWords = [];
 
-  const patternWeight = calculateWordWeight(pattern);
+  const patternWeight = calculatePatternWeight(pattern);
 
   for (const word of words) {
-    const wordWeight = calculateWordWeight(word);
+    const wordWeight = calculatePatternWeight(word);
     if (wordWeight === patternWeight) matchedWords.push(word);
   }
 
   return matchedWords;
 };
 
-function calculateWordWeight(word) {
+function calculatePatternWeight(word) {
   const seenLetters = new Map();
   let totalWeight = "";
   let weight = 1;
@@ -31,3 +31,5 @@ function calculateWordWeight(word) {
 
   return totalWeight;
 }
+
+findAndReplacePattern(["abc", "deq", "mee", "aqq", "dkd", "ccc"], "abb");
